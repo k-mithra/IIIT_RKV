@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIIT RGUKT RK Valley - Placements & Internships</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" src="script.js"></script>
+    <script type="module" src="company-form.js"></script>
+    <script type="module" src="image_implementation.js"></script>
+    <script>
+        // Check if user is logged in
+        if (!localStorage.getItem('isLoggedIn')) {
+            window.location.href = 'login.html';
+        }
+    </script>
+</head>
+<body>
+    <!-- Header with navigation -->
+    <header>
+        <nav class="main-nav">
+            <div class="container">
+                <div class="logo">
+                    <img src="images/rgukt.jpg" alt="IIIT RGUKT Logo">
+                    <div class="logo-text">
+                        <h1>IIIT RGUKT RK Valley</h1>
+                        <p>Rajiv Gandhi University of Knowledge Technologies</p>
+                    </div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li class="dropdown">
+                        <a href="#placements">Placements <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#placement-records">Placement Records</a></li>
+                            <li><a href="#internships">Internships</a></li>
+                            <li><a href="#statistics">Statistics</a></li>
+                            <li><a href="#companies">Recruiting Companies</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#alumni">Alumni <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#alumni-network">Alumni Network</a></li>
+                            <li><a href="#success-stories">Success Stories</a></li>
+                            <li><a href="#alumni-events">Alumni Events</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><button id="logoutBtn" class="logout-btn">Logout</button></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-slider">
+                <div class="slide active">
+                    <div class="container">
+                        <div class="hero-content">
+                            <h1>Career Success Stories</h1>
+                            <p>Celebrating the achievements of our talented students at IIIT RGUKT RK Valley</p>
+                            <div class="hero-buttons">
+                                <a href="#placement-records" class="btn btn-primary">View Placements</a>
+                                <a href="#alumni-network" class="btn btn-secondary">Alumni Network</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="container">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+                        <div class="stat-info">
+                            <span class="number" id="totalPlacements">500+</span>
+                            <span class="label">Students Placed</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-building"></i></div>
+                        <div class="stat-info">
+                            <span class="number" id="totalCompanies">50+</span>
+                            <span class="label">Companies</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-rupee-sign"></i></div>
+                        <div class="stat-info">
+                            <span class="number" id="avgPackage">40+</span>
+                            <span class="label">LPA Average</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About IIIT RGUKT RK Valley</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>IIIT RGUKT RK Valley is a premier institution dedicated to providing quality education in engineering and technology. Our placement cell works tirelessly to connect our talented students with leading companies across the globe.</p>
+                        <p>With a strong focus on industry-relevant curriculum and practical exposure, our students are well-prepared to meet the challenges of the professional world.</p>
+                        <div class="about-features">
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Industry-aligned curriculum</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Experienced faculty</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>State-of-the-art facilities</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Strong industry connections</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image">
+                        <img src="images/campus.jpeg" alt="IIIT RGUKT Campus">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placement Records Section -->
+        <section id="placement-records" class="section placement-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Placement Records</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <!-- Add Student Button -->
+                <div class="add-student-button-container">
+                    <button id="showAddStudentForm" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add New Student
+                    </button>
+                </div>
+                
+                <!-- Add Student Form (Hidden by default) -->
+                <div class="add-student-form" id="addStudentForm" style="display: none;">
+                    <h3>Add Selected Student</h3>
+                    <form id="newStudentForm">
+                        <div class="form-group">
+                            <input type="text" id="studentName" placeholder="Student Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="rollNumber" placeholder="Roll Number" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="studentBranch" required>
+                                <option value="">Select Branch</option>
+                                <option value="cse">CSE</option>
+                                <option value="ece">ECE</option>
+                                <option value="mech">Mechanical</option>
+                                <option value="civil">Civil</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="studentYear" required>
+                                <option value="">Select Year</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="selectedCompany" required>
+                                <option value="">Select Company</option>
+                                <!-- Companies will be populated dynamically -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" id="package" placeholder="Package (LPA)" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="placementType" required>
+                                <option value="">Select Type</option>
+                                <option value="FULL_TIME">Full Time</option>
+                                <option value="INTERNSHIP">Internship</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Add Student</button>
+                            <button type="button" id="cancelAddStudent" class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="yearFilter">Year</label>
+                        <select id="yearFilter">
+                            <option value="all">All Years</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="branchFilter">Branch</label>
+                        <select id="branchFilter">
+                            <option value="all">All Branches</option>
+                            <option value="cse">CSE</option>
+                            <option value="ece">ECE</option>
+                            <option value="mech">Mechanical</option>
+                            <option value="civil">Civil</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="typeFilter">Type</label>
+                        <select id="typeFilter">
+                            <option value="all">All Types</option>
+                            <option value="FULL_TIME">Full Time</option>
+                            <option value="INTERNSHIP">Internship</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="placement-grid" id="placementGrid">
+                    <!-- Placement cards will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Internship Section -->
+        <section id="internships" class="section internship-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Internship Opportunities</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="internship-grid" id="internshipGrid">
+                    <!-- Internship cards will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section id="statistics" class="section statistics-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Placement Statistics</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+                        <div class="stat-info">
+                            <h3>Total Placements</h3>
+                            <p id="totalPlacements">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-building"></i></div>
+                        <div class="stat-info">
+                            <h3>Companies</h3>
+                            <p id="totalCompanies">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="stat-info">
+                            <h3>Average Package</h3>
+                            <p id="avgPackage">0 LPA</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="placementChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Companies Section -->
+        <section id="companies" class="section companies-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Recruiting Companies</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div id="companies-container" class="companies-grid">
+                    <!-- Company cards will be dynamically added here -->
+                </div>
+                
+                <!-- Add Company Button -->
+                <div class="add-company-section">
+                    <button id="addCompanyBtn" class="add-company-btn">Add New Company</button>
+                </div>
+
+                <!-- Company Modal -->
+                <div id="companyModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Add New Company</h2>
+                        <form id="companyForm" method="post">
+                            <div class="form-group">
+                                <label for="companyName">Company Name *</label>
+                                <input type="text" id="companyName" name="companyName" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="companyLocation">Location *</label>
+                                <input type="text" id="companyLocation" name="companyLocation" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="companyWebsite">Website URL</label>
+                                <input type="url" id="companyWebsite" name="companyWebsite">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="companyType">Company Type</label>
+                                <select id="companyType" name="companyType">
+                                    <option value="IT">IT</option>
+                                    <option value="Consulting">Consulting</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Manufacturing">Manufacturing</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="companyDescription">Description</label>
+                                <textarea id="companyDescription" name="companyDescription" rows="4"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="companyLogo">Company Logo</label>
+                                <input type="file" id="companyLogo" name="companyLogo" accept="image/*">
+                                <img id="logoPreview" style="display: none; max-width: 200px; margin-top: 10px;">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary" id="submitCompany">Add Company</button>
+                                <button type="button" class="btn btn-secondary" id="cancelCompany">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alumni Section -->
+        <section id="alumni" class="section alumni-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Alumni Network</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <!-- Add Alumni Button -->
+                <div class="add-alumni-button-container">
+                    <button id="showAddAlumniForm" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add New Alumni
+                    </button>
+                </div>
+                
+                <!-- Add Alumni Form (Hidden by default) -->
+                <div class="add-alumni-form" id="addAlumniForm" style="display: none;">
+                    <h3>Add New Alumni</h3>
+                    <form id="newAlumniForm">
+                        <div class="form-group">
+                            <input type="text" id="alumniName" placeholder="Alumni Name" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="alumniBatch" required>
+                                <option value="">Select Batch</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select id="alumniBranch" required>
+                                <option value="">Select Branch</option>
+                                <option value="cse">CSE</option>
+                                <option value="ece">ECE</option>
+                                <option value="mech">Mechanical</option>
+                                <option value="civil">Civil</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="currentCompany" placeholder="Current Company" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="position" placeholder="Position" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="location" placeholder="Location" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="url" id="linkedin" placeholder="LinkedIn URL" required>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Add Alumni</button>
+                            <button type="button" id="cancelAddAlumni" class="btn btn-secondary">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="alumni-filters">
+                    <div class="filter-group">
+                        <label for="alumniBranchFilter">Branch</label>
+                        <select id="alumniBranchFilter">
+                            <option value="all">All Branches</option>
+                            <option value="cse">CSE</option>
+                            <option value="ece">ECE</option>
+                            <option value="mech">Mechanical</option>
+                            <option value="civil">Civil</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="alumniBatchFilter">Batch</label>
+                        <select id="alumniBatchFilter">
+                            <option value="all">All Batches</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="alumni-grid" id="alumniGrid">
+                    <!-- Alumni cards will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Contact Us</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h3>Address</h3>
+                                <p>IIIT RGUKT RK Valley, Idupulapaya, Kadapa, Andhra Pradesh - 516330</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h3>Phone</h3>
+                                <p>+91 1234567890</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h3>Email</h3>
+                                <p>placements@iiitrgukt.ac.in</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h3>Working Hours</h3>
+                                <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section about">
+                        <h3>About IIIT RGUKT</h3>
+                        <p>IIIT RGUKT RK Valley is committed to providing quality education and fostering innovation in engineering and technology.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#placement-records">Placements</a></li>
+                            <li><a href="#internships">Internships</a></li>
+                            <li><a href="#alumni">Alumni</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section contact">
+                        <h3>Contact Info</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> IIIT RGUKT RK Valley, Idupulapaya, Kadapa</p>
+                        <p><i class="fas fa-phone"></i> +91 1234567890</p>
+                        <p><i class="fas fa-envelope"></i> placements@iiitrgukt.ac.in</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section newsletter">
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to our newsletter for updates on placements and events.</p>
+                        <form id="newsletterForm">
+                            <input type="email" placeholder="Your Email" required>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2024 IIIT RGUKT RK Valley. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="api.js" type="module"></script>
+    <script src="company-dropdown.js" type="module"></script>
+    <script>
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            // Clear authentication data from localStorage
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('username');
+            
+            // Redirect to login page
+            window.location.href = 'login.html';
+        });
+    
+        // Check authentication status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!localStorage.getItem('isLoggedIn')) {
+                window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html> 
